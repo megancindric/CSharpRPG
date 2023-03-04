@@ -25,7 +25,8 @@ namespace CSharpRPG
         internal void GreetUser()
         {
             Console.WriteLine("\n\n========== WELCOME TO THE THUNDERDOME ==========\n\n");
-            Console.WriteLine($"\n\n{hero.name} must defeat {enemyList.fighters.Count} enemies to win!\n\n");
+            Console.WriteLine($"{hero.name} must defeat {enemyList.fighters.Count} enemies to win!\n\n");
+            DisplayGameStatus();
         }
 
         internal void ExecuteBattle()
@@ -42,6 +43,8 @@ namespace CSharpRPG
                     enemyList.fighters[0].EnemyAttack(hero);
                 }
 
+                DisplayGameStatus();
+
             }
         }
 
@@ -52,6 +55,25 @@ namespace CSharpRPG
                 enemyList.fighters.Remove(fighter);
                 Console.ReadLine();
             }
+        }
+
+        internal void DisplayGameStatus()
+        {
+            Console.WriteLine("\n========== HERO STATS ==========\n");
+            DisplayCharacterStats(hero);
+
+            Console.WriteLine("\n========== Enemy STATS ==========\n");
+
+            for (int i = 0;i < enemyList.fighters.Count;i++)
+            {
+                DisplayCharacterStats(enemyList.fighters[i]);
+            }
+            Console.ReadLine();
+        }
+
+        internal void DisplayCharacterStats(Character character)
+        {
+            Console.WriteLine($"{character.name} --  (Attack Power: {character.attackPower}, Health: {character.health})");
         }
 
 

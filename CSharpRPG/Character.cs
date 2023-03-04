@@ -18,7 +18,7 @@ namespace CSharpRPG
         {
             name = characterName;
             health = 100;
-            attackPower = random.Next(20,30);
+            attackPower = random.Next(10,30);
 
         }
 

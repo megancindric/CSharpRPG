@@ -12,7 +12,7 @@ namespace CSharpRPG
         internal Hero(string characterName)
             :base(characterName)
         {
-            attackPower = random.Next(50, 75);
+            attackPower = random.Next(60, 80);
 
         }
 
