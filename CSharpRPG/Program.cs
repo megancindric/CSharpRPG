@@ -4,7 +4,8 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Thunderdome thunderdome = new Thunderdome();
+            thunderdome.RunGame(); 
         }
     }
 }
