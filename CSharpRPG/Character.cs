@@ -16,9 +16,9 @@ namespace CSharpRPG
         internal Random random = new Random();
         internal Character(string characterName)
         {
-            this.name = characterName;
-            this.health = 100;
-            this.attackPower = random.Next(20,30);
+            name = characterName;
+            health = 100;
+            attackPower = random.Next(20,30);
 
         }
 

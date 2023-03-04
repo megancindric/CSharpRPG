@@ -13,12 +13,12 @@ namespace CSharpRPG
             {
             }
 
-        internal void EnemyAttack(Enemy enemy, Hero hero)
+        internal void EnemyAttack(Hero hero)
         {
-            hero.health -= enemy.attackPower;
+            hero.health -= attackPower;
             hero.health = hero.health < 0 ? 0 : hero.health;
 
-            Console.WriteLine($"\n{enemy.name} attacks {hero.name} and deals {enemy.attackPower} damage!\n{hero.name} has {hero.health} health remaining!\n");
+            Console.WriteLine($"\n{name} attacks {hero.name} and deals {attackPower} damage!\n{hero.name} has {hero.health} health remaining!\n");
         }
     }
 }

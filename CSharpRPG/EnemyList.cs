@@ -9,16 +9,16 @@ namespace CSharpRPG
     internal class EnemyList
     {
 
-        internal List<Enemy> enemyList;
+        internal List<Enemy> fighters;
 
         internal EnemyList()
         {
-            this.enemyList = new List<Enemy>();
+            fighters = new List<Enemy>();
             List<string> enemyNames = new List<string>() { "7-Headed Hydra", "Hades", "Theseus"};
             for (int i = 0; i < enemyNames.Count; i++)
             {
                 Enemy enemy = new Enemy(enemyNames[i]);
-                enemyList.Add(enemy);
+                fighters.Add(enemy);
             }
 
         }

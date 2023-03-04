@@ -12,17 +12,17 @@ namespace CSharpRPG
         internal Hero(string characterName)
             :base(characterName)
         {
-            this.attackPower = random.Next(50, 75);
+            attackPower = random.Next(50, 75);
 
         }
 
-        public void HeroAttack(Hero hero, Enemy enemy)
+        public void HeroAttack( Enemy enemy)
         {
-            enemy.health -= hero.attackPower;
+            enemy.health -= attackPower;
 
             enemy.health = enemy.health < 0 ? 0 : enemy.health;
 
-            Console.WriteLine($"\n{hero.name} attacks {enemy.name} and deals {hero.attackPower} damage!\n{enemy.name} has {enemy.health} health remaining.\n");
+            Console.WriteLine($"\n{name} attacks {enemy.name} and deals {attackPower} damage!\n{enemy.name} has {enemy.health} health remaining.\n");
         }
 
     }
