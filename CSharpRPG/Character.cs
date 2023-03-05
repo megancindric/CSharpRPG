@@ -8,24 +8,35 @@ namespace CSharpRPG
 {
     internal abstract class Character
     {
-        internal string name;
-        internal int health;
+        private string name ="";
+        internal string Name { get => name; set => name = value; }
+        private int health = 100;
+        
+        internal int Health
+        {
+            get => health;
+            set => health = value;
+        }
+        internal AttackArray attackArray = new AttackArray();
+        
         // new() abbreviates new List<string>();
         // internal List<string> attackNames = new();
-        internal int attackPower;
+        private int attackPower;
+        internal int AttackPower { get => attackPower; set => attackPower = value; }
         internal Random random = new Random();
         internal Character(string characterName)
         {
-            name = characterName;
-            health = 100;
-            attackPower = random.Next(10,30);
-
+            Name = characterName;
+            AttackPower = random.Next(10,30);
+            attackArray.CreateAttackArray(this);
         }
 
-        
-        
+        internal void DisplayCharacterStats()
+        {
+            Console.WriteLine($"{Name} --  (Attack Power: {AttackPower}, Health: {Health})");
+            attackArray.DisplayAttacks();
+        }
 
-        
     }
 
     

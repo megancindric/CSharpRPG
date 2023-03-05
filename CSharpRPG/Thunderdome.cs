@@ -25,13 +25,13 @@ namespace CSharpRPG
         internal void GreetUser()
         {
             Console.WriteLine("\n\n========== WELCOME TO THE THUNDERDOME ==========\n\n");
-            Console.WriteLine($"{hero.name} must defeat {enemyList.fighters.Count} enemies to win!\n\n");
+            Console.WriteLine($"{hero.Name} must defeat {enemyList.fighters.Count} enemies to win!\n\n");
             DisplayGameStatus();
         }
 
         internal void ExecuteBattle()
         {
-            while (enemyList.fighters.Count > 0 && hero.health > 0)
+            while (enemyList.fighters.Count > 0 && hero.Health > 0)
             {
                 //Zag attack fighter method
                 hero.HeroAttack(enemyList.fighters[0]);
@@ -50,8 +50,8 @@ namespace CSharpRPG
 
         public void DeathCheck(Enemy fighter)
         {
-            if (fighter.health == 0){
-                Console.WriteLine($"{fighter.name} has been defeated!");
+            if (fighter.Health == 0){
+                Console.WriteLine($"{fighter.Name} has been defeated!");
                 enemyList.fighters.Remove(fighter);
                 Console.ReadLine();
             }
@@ -60,32 +60,26 @@ namespace CSharpRPG
         internal void DisplayGameStatus()
         {
             Console.WriteLine("\n========== HERO STATS ==========\n");
-            DisplayCharacterStats(hero);
+            hero.DisplayCharacterStats();
 
             Console.WriteLine("\n========== Enemy STATS ==========\n");
 
             for (int i = 0;i < enemyList.fighters.Count;i++)
             {
-                DisplayCharacterStats(enemyList.fighters[i]);
+                enemyList.fighters[i].DisplayCharacterStats();
             }
             Console.ReadLine();
         }
-
-        internal void DisplayCharacterStats(Character character)
-        {
-            Console.WriteLine($"{character.name} --  (Attack Power: {character.attackPower}, Health: {character.health})");
-        }
-
 
         internal void DisplayWinner()
         {
             if (enemyList.fighters.Count> 0)
             {
-                Console.WriteLine($"{hero.name} has fallen!  Better luck next time!");
+                Console.WriteLine($"{hero.Name} has fallen!  Better luck next time!");
             }
             else
             {
-                Console.WriteLine($"{hero.name} has emerged victorious!!");
+                Console.WriteLine($"{hero.Name} has emerged victorious!!");
             }
 
             Console.ReadLine();

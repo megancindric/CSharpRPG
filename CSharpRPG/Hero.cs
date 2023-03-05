@@ -8,21 +8,19 @@ namespace CSharpRPG
 {
     internal class Hero : Character
     {
-        Random random = new Random();
         internal Hero(string characterName)
             :base(characterName)
         {
-            attackPower = random.Next(60, 80);
-
+            AttackPower = random.Next(60, 80);
         }
 
         public void HeroAttack( Enemy enemy)
         {
-            enemy.health -= attackPower;
+            enemy.Health -= AttackPower;
 
-            enemy.health = enemy.health < 0 ? 0 : enemy.health;
+            enemy.Health = enemy.Health < 0 ? 0 : enemy.Health;
 
-            Console.WriteLine($"\n{name} attacks {enemy.name} and deals {attackPower} damage!\n{enemy.name} has {enemy.health} health remaining.\n");
+            Console.WriteLine($"\n{Name} attacks {enemy.Name} and deals {AttackPower} damage!\n{enemy.Name} has {enemy.Health} health remaining.\n");
         }
 
     }
